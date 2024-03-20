@@ -1,158 +1,21 @@
 <style>
-img{
-  max-width:20vw;
-  height: auto /* Ajusta la altura automáticamente para mantener la proporción de la imagen */
-  
+.big{
+    max-width: 20%
 }
 
-h1{
-  font-size:200%
+.small{
+    max-width: 10%
 }
 
-body{
-  background-color: rgb(33, 31, 31);
-  color:rgb(237, 225, 225)
-}
-
-a{
-  font-weight: bold;
-  font-size: 1.2em;
-  color:rgb(237, 225, 225);
-  
-}
-
-/* Estilos para el contenedor de imágenes */
-#imageContainer {
-    position: fixed;
-    top: 10px; /* Ajusta la posición superior según sea necesario */
-    left: 10px; /* Ajusta la posición izquierda según sea necesario */
-    z-index: 999; /* Asegura que el contenedor esté por encima de otros elementos */
-    max-width: calc(100% - 20px); /* Limita el ancho del contenedor al ancho de la ventana menos el espacio de los márgenes */
-    max-height: calc(100% - 20px); /* Limita la altura del contenedor al alto de la ventana menos el espacio de los márgenes */
-    overflow: auto; /* Agrega desplazamiento si la imagen es más grande que el contenedor */
-   }
-
-#name{
-  color:palevioletred
-}
-
-#list1{
-  color:green
-}
-
-#items{
-  color:blue
-}
-
-#secondButton{
-  display: none
-  }
 </style>
-<h1>First Project</h1>
-<h2 id="name">My name is Vanina</h2>
-<p>I am a software developer, specialized in backend, currently venturing into the front end.</p>
-<p>I invite you to browse my site <a href="https://github.com/vlambo3">DevDiscovery</a>
-</p>
 
-<p>As a passionate programmer, I find solace and inspiration in the great outdoors. Beyond lines of code, you'll often find me scaling <span class="word">mountains</span>, <span class="word">kayaking</span> across serene lakes, or <span>cycling</span> through scenic trails. Engaging in these activities not only rejuvenates my spirit but also fuels my creativity, providing a fresh perspective on problem-solving.
-
-  My connection with nature isn't just recreational; it's a fundamental part of who I am. Whether carving through powdery slopes on a snowboard or navigating winding river currents, I thrive in the elements, embracing each challenge with determination and enthusiasm.
-  
-  Moreover, my proficiency in English allows me to communicate effectively and collaborate seamlessly with diverse teams worldwide. This linguistic fluency complements my technical skills, enabling me to bridge cultural gaps and bring innovative ideas to fruition on a global scale.
-  
-  In essence, my love for programming is intricately intertwined with my appreciation for the natural world, shaping me into a well-rounded individual with a boundless passion for both technology and adventure. <button id=clickButton>CLICK ON ME!</button></p>
-
-<!--DESDE ACÁ LA TABLA
-<table border="2" cellpadding=100 cellspacing=20>
-  <tr>
-    <th>Column 2</th>
-    <th>Column 2</th>
-    <th>Column 3</th>
-    <th>Column 4</th>
-  </tr>
-  <tr>  
-<td><img src="project/LagoAzul.jpg"></td>
-<td><img src="images/desert.jpg"></td>
-<td>
-  <div id="myFirstDiv">
-
-  </div>
-</td>
-<td>
-  <h1 id=list1>Unorder list</h1>
-  <ul id=items>
-    <li>
-      <input id="myFirstInput">
-    </li>
-    <li>bbb2</li>
-    <li>bbb3</li>
-    <li><button id=idButton>EAT ME!</button></li>
-  </ul>
-</td>
-    </tr>
-  <tr>
-<td><img src="images/lake.jpg"></td>
-<td><img src="images/rocks.jpg"></td>
-<td><img src="images/vanina.jpg"></td>
-<td><h3 id=list2>This is a other cell in the table</h3>
-  <ol>
-    <li>aa1</li>
-    <li>aa2</li>
-    <li>aa3</li>
-    <li>aa4</li>
-  </ol>
-</td>
-    </tr>
-</table>-->
-
-<div id="firstAdventure"></button> </div>
+<p>Here is photo one <img class="small" id="desert" src ="images/nature.jpg"> </p>
+<p>Here is photo two <img class="big" id="nature" src ="images/nature.jpg"> </p>
 
 <script>
-  var clickButton = document.getElementById('clickButton')
-  var firstAdventure = document.getElementById('firstAdventure')
+desert.onclick = function() {
+    desert.classList.toggle("small")
+    desert.classList.toggle("big")
+}
 
-  clickButton.onclick=function(event) {
-    debugger 
-    var imgElement = document.createElement('img')
-    imgElement.src = "images/rocks.jpg"
-    firstAdventure.innerHTML = ''
-    firstAdventure.appendChild(imgElement)
-
-    firstAdventure.innerHTML += "<h1>Blue Lagoon</h1><p>Blue Lagoon, an oasis of tranquility in the majestic setting of the Argentine Patagonia. Surrounded by imposing mountains and lush forests, this crystalline lagoon offers a perfect escape to connect with nature. Whether enjoying a picnic in summer or exploring a snow-covered landscape in winter, each visit to Blue Lagoon promises an unforgettable experience. Discover the magic of this hidden gem in Bariloche. 🏞️✨ <a href='https://es.wikipedia.org/wiki/Laguna_Azul_(Argentina)'>  #LagunaAzul</a> <a href='https://es.wikipedia.org/wiki/San_Carlos_de_Bariloche'> #Bariloche</a> <a href='https://es.wikipedia.org/wiki/Patagonia'> #Patagonia</a> <a href='https://es.wikipedia.org/wiki/Naturaleza'> #Naturaleza</a></p>"
-    
-    var secondButton = document.getElementById('secondButton')
-    secondButton.style.display = 'block'
-
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-  var wordsToImages = {
-    "mountains": "images/mountains.jpg",
-    "kayaking": "images/kayaking.jpg",
-    "cycling": "images/cycling.jpg",
-    "snowboard": "images/snowboard.jpg",
-    "nature": "images/nature.jpg",
-    "technology": "images/technology.jpg",
-    "adventure": "images/adventure.jpg"
-  }
-  
-  var words = document.querySelectorAll(".word");
-
-words.forEach(function (word) {
-  word.addEventListener("click", function () {
-    var wordText = word.textContent.toLowerCase();
-    if (wordsToImages.hasOwnProperty(wordText)) {
-      var imageSrc = wordsToImages[wordText];
-      var imageElement = document.createElement("img");
-      imageElement.src = imageSrc;
-      firstAdventure.innerHTML = "";
-      firstAdventure.appendChild(imageElement);
-    }
-  });
-});
-});
-  
 </script>
-
-<button id="secondButton">SEE MORE</button>
-
