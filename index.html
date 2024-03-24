@@ -1,17 +1,21 @@
 <style>
-img{max-width:10vw}
-h1{font-size:200%}
+.big{
+    max-width: 20%
+}
+
+.small{
+    max-width: 10%
+}
+
 </style>
-<h1>First Project</h1>
-<p>My name is Vanina</p>
-<table>
-  <tr>  
-<td><img src="project/LagoAzul.jpg"></td>
-<td><img src="images/desert.jpg"></td>
-    </tr>
-  <tr>
-<td><img src="images/lake.jpg"></td>
-<td><img src="images/rocks.jpg"></td>
-<td><img src="images/vanina.jpg"></td>
-    </tr>
-</table>
+
+<p>Here is photo one <img class="small" id="desert" src ="images/nature.jpg"> </p>
+<p>Here is photo two <img class="big" id="nature" src ="images/nature.jpg"> </p>
+
+<script>
+desert.onclick = function() {
+    desert.classList.toggle("small")
+    desert.classList.toggle("big")
+}
+
+</script>
